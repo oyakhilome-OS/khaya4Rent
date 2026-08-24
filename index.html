@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khaya4Rent — Every message is someone looking for a home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0B2622;
+    --navy-deep2:#0F332D;
+    --teal:#5FB3A3;
+    --teal-dark:#0F6E56;
+    --terracotta:#C9603A;
+    --terracotta-light:#E68A63;
+    --cream:#F7F4EC;
+    --cream2:#FCFAF5;
+    --ink:#16241F;
+    --ink-soft:#3E4F49;
+    --line:rgba(22,36,31,0.10);
+    --line-dark:rgba(255,255,255,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Manrope',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  section{position:relative;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,38,34,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--cream2);text-decoration:none;}
+  .brand-mark{
+    width:30px;height:30px;border-radius:8px;
+    background:linear-gradient(145deg,var(--teal),var(--teal-dark));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:700;color:var(--navy-deep);font-size:16px;
+  }
+  .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;}
+  .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;color:rgba(247,244,236,0.75);}
+  .nav-links a{text-decoration:none;transition:color .2s;}
+  .nav-links a:hover{color:var(--cream2);}
+  .nav-cta{
+    background:var(--terracotta);color:#fff;padding:9px 18px;border-radius:999px;
+    font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--terracotta-light);}
+  @media(max-width:760px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(120% 90% at 15% -10%, var(--navy-deep2) 0%, var(--navy-deep) 55%, #071B18 100%);
+    color:var(--cream2);
+    padding:88px 0 100px;
+    overflow:hidden;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+  @media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;} .hero{padding:56px 0 64px;} }
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--teal);background:rgba(95,179,163,0.12);border:1px solid rgba(95,179,163,0.3);
+    padding:6px 12px;border-radius:999px;margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(95,179,163,0.25);}
+
+  .hero h1{font-size:44px;line-height:1.12;color:#fff;}
+  .hero h1 em{font-style:normal;color:var(--teal);}
+  .hero p.lede{
+    margin-top:20px;font-size:17px;line-height:1.6;color:rgba(247,244,236,0.78);max-width:480px;
+  }
+  @media(max-width:520px){ .hero h1{font-size:33px;} }
+
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--terracotta);color:#fff;padding:14px 24px;border-radius:10px;
+    font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s, background .2s;
+  }
+  .btn-primary:hover{background:var(--terracotta-light);transform:translateY(-1px);}
+  .btn-ghost{
+    background:transparent;color:var(--cream2);padding:14px 22px;border-radius:10px;
+    font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(247,244,236,0.28);
+    transition:border-color .2s, background .2s;
+  }
+  .btn-ghost:hover{border-color:rgba(247,244,236,0.6);background:rgba(255,255,255,0.04);}
+
+  .hero-note{margin-top:18px;font-size:13px;color:rgba(247,244,236,0.5);}
+
+  /* ---------- PHONE DEMO ---------- */
+  .phone{
+    background:#0E2622;border:1px solid rgba(255,255,255,0.08);
+    border-radius:22px;padding:0;box-shadow:0 30px 70px -20px rgba(0,0,0,0.55);
+    overflow:hidden;
+  }
+  .phone-head{
+    display:flex;align-items:center;gap:10px;padding:16px 18px;
+    background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .phone-avatar{
+    width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,var(--teal),var(--teal-dark));
+    display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy-deep);font-family:'Fraunces',serif;
+  }
+  .phone-headtext{line-height:1.3;}
+  .phone-headtext .name{font-weight:700;color:#fff;font-size:14.5px;}
+  .phone-headtext .status{font-size:12px;color:rgba(247,244,236,0.5);}
+  .phone-headtext .status::before{content:"● ";color:var(--teal);font-size:9px;}
+  .phone-body{padding:20px 16px;display:flex;flex-direction:column;gap:10px;min-height:360px;}
+  .bubble{
+    max-width:82%;padding:10px 13px;border-radius:14px;font-size:13.5px;line-height:1.45;
+    animation:rise .5s ease both;
+  }
+  .bubble .time{display:block;margin-top:4px;font-size:10.5px;font-family:'JetBrains Mono',monospace;opacity:0.55;}
+  .bubble.in{
+    align-self:flex-start;background:rgba(255,255,255,0.07);color:#EFEEE8;border-bottom-left-radius:4px;
+  }
+  .bubble.out{
+    align-self:flex-end;background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#062A22;border-bottom-right-radius:4px;
+  }
+  .bubble.out .time{color:rgba(6,42,34,0.6);}
+  @keyframes rise{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .bubble:nth-child(1){animation-delay:.1s;}
+  .bubble:nth-child(2){animation-delay:.3s;}
+  .bubble:nth-child(3){animation-delay:.5s;}
+  .bubble:nth-child(4){animation-delay:.7s;}
+  .bubble:nth-child(5){animation-delay:.9s;}
+  .bubble:nth-child(6){animation-delay:1.1s;}
+
+  .score-chip{
+    align-self:flex-start;display:flex;align-items:center;gap:8px;
+    background:rgba(201,96,58,0.14);border:1px solid rgba(201,96,58,0.4);
+    padding:8px 12px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--terracotta-light);
+    animation:rise .5s ease both;animation-delay:1.3s;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-pad{padding:96px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head .eyebrow-light{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--teal-dark);margin-bottom:14px;display:block;
+  }
+  .section-head h2{font-size:32px;line-height:1.22;color:var(--ink);}
+  .section-head p{margin-top:14px;font-size:16px;line-height:1.6;color:var(--ink-soft);}
+
+  /* ---------- PROBLEM ---------- */
+  .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:860px){ .problem-grid{grid-template-columns:1fr;} }
+  .p-card{
+    background:var(--cream2);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;
+  }
+  .p-card .glyph{font-size:22px;margin-bottom:16px;display:block;}
+  .p-card h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:10px;}
+  .p-card p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin:0;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .how{background:var(--navy-deep);color:var(--cream2);}
+  .how .section-head h2{color:#fff;}
+  .how .section-head p{color:rgba(247,244,236,0.7);}
+  .how .eyebrow-light{color:var(--teal);}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:860px){ .steps{grid-template-columns:1fr;} }
+  .step{
+    border-left:2px solid rgba(95,179,163,0.35);padding-left:20px;
+  }
+  .step .num{
+    font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:13px;margin-bottom:14px;display:block;
+  }
+  .step h3{font-size:19px;font-weight:600;color:#fff;margin-bottom:10px;}
+  .step p{font-size:14.5px;line-height:1.6;color:rgba(247,244,236,0.68);margin:0;}
+
+  /* ---------- KHAYA SCORE (signature) ---------- */
+  .score-section .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;}
+  @media(max-width:900px){ .score-section .wrap{grid-template-columns:1fr;} }
+  .score-visual{
+    background:var(--navy-deep);border-radius:20px;padding:44px 32px;
+    display:flex;flex-direction:column;align-items:center;gap:18px;
+  }
+  .ring-wrap{position:relative;width:220px;height:220px;}
+  .ring-num{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .ring-num .big{font-family:'Fraunces',serif;font-size:52px;font-weight:600;color:#fff;line-height:1;}
+  .ring-num .small{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);margin-top:4px;letter-spacing:0.05em;}
+  .factor-list{width:100%;display:flex;flex-direction:column;gap:10px;}
+  .factor{
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:12.5px;color:rgba(247,244,236,0.75);font-family:'JetBrains Mono',monospace;
+    padding:2px 0;
+  }
+  .factor .bar-track{flex:1;height:5px;background:rgba(255,255,255,0.1);border-radius:4px;margin:0 12px;overflow:hidden;}
+  .factor .bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--teal),var(--terracotta));}
+
+  .score-copy h2{font-size:30px;line-height:1.25;color:var(--ink);margin-bottom:16px;}
+  .score-copy p{font-size:16px;line-height:1.65;color:var(--ink-soft);margin-bottom:16px;}
+  .score-copy .callout{
+    margin-top:24px;padding:18px 20px;border-left:3px solid var(--terracotta);
+    background:var(--cream2);border-radius:0 10px 10px 0;font-size:14.5px;color:var(--ink-soft);line-height:1.6;
+  }
+  .score-copy .callout b{color:var(--ink);}
+
+  /* ---------- DIFFERENTIATION ---------- */
+  .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:860px){ .diff-grid{grid-template-columns:1fr;} }
+  .d-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;background:var(--cream2);
+    position:relative;
+  }
+  .d-card .tag{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal-dark);text-transform:uppercase;
+    letter-spacing:0.06em;margin-bottom:12px;display:block;
+  }
+  .d-card h3{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px;}
+  .d-card p{font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0;}
+
+  /* ---------- TRUST ---------- */
+  .trust{background:var(--cream2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .trust .wrap{padding:48px 28px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:space-between;}
+  .trust-item{display:flex;align-items:center;gap:12px;max-width:280px;}
+  .trust-item .ico{
+    width:36px;height:36px;border-radius:9px;background:rgba(95,179,163,0.14);color:var(--teal-dark);
+    display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;
+  }
+  .trust-item span{font-size:13.5px;color:var(--ink-soft);line-height:1.45;}
+
+  /* ---------- CTA ---------- */
+  .cta-section{
+    background:linear-gradient(150deg,var(--teal-dark) 0%, var(--navy-deep) 75%);
+    color:#fff;text-align:center;padding:100px 0;
+  }
+  .cta-section h2{font-size:36px;line-height:1.2;color:#fff;max-width:600px;margin:0 auto 18px;}
+  .cta-section p{font-size:16px;color:rgba(247,244,236,0.75);max-width:480px;margin:0 auto 34px;}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep);color:rgba(247,244,236,0.55);padding:40px 0;}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;font-size:13px;}
+  footer .f-brand{display:flex;align-items:center;gap:8px;color:rgba(247,244,236,0.85);}
+  footer a{text-decoration:none;color:inherit;}
+  footer a:hover{color:var(--teal);}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">Khaya4Rent</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#score">The Khaya Score</a>
+      <a href="#different">Why rentals only</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/27754616225?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Khaya4Rent" target="_blank" rel="noopener">Chat with Penny</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Live on WhatsApp</span>
+      <h1>Every message on WhatsApp is someone <em>looking for a home.</em></h1>
+      <p class="lede">Khaya4Rent's Penny qualifies renters, matches listings, and books viewings the moment an enquiry lands — day, night, or the middle of a Saturday viewing.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://wa.me/27754616225?text=Hi%2C%20I%27d%20like%20a%20demo%20of%20Khaya4Rent" target="_blank" rel="noopener">Message Penny on WhatsApp →</a>
+        <a class="btn-ghost" href="#how">See how it works</a>
+      </div>
+      <p class="hero-note">Built for South African letting agencies · Part of Trieva Technologies</p>
+    </div>
+
+    <div class="phone">
+      <div class="phone-head">
+        <div class="phone-avatar">P</div>
+        <div class="phone-headtext">
+          <div class="name">Penny · Khaya4Rent</div>
+          <div class="status">Online</div>
+        </div>
+      </div>
+      <div class="phone-body">
+        <div class="bubble in">Hi, saw the 2-bed in Observatory. Still available? 🙏<span class="time">21:04</span></div>
+        <div class="bubble out">Hi! I'm Penny, Khaya4Rent's assistant 👋 It's still open. When are you hoping to move in?<span class="time">21:04 ✓✓</span></div>
+        <div class="bubble in">Start of October, budget around R14k<span class="time">21:06</span></div>
+        <div class="bubble out">That's within range. Quick one — any pets, and is it just you moving in?<span class="time">21:06 ✓✓</span></div>
+        <div class="bubble in">Just me, no pets<span class="time">21:07</span></div>
+        <div class="bubble out">Great fit ✅ I can book a viewing — Thursday 3pm or Saturday 10am?<span class="time">21:07 ✓✓</span></div>
+        <div class="score-chip">⚡ Khaya Score: 87/100 — sent to agent</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow-light">The problem</span>
+      <h2>Rental enquiries don't wait for office hours.</h2>
+      <p>Most come in after 6pm, on weekends, or while your team is mid-viewing with someone else. By the time anyone replies, the good ones have already messaged three other agencies.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="p-card reveal">
+        <span class="glyph">🌙</span>
+        <h3>Leads arrive off-hours</h3>
+        <p>Tenants scroll listings at night. A reply the next morning is often a reply too late.</p>
+      </div>
+      <div class="p-card reveal">
+        <span class="glyph">🧾</span>
+        <h3>Unqualified enquiries eat your day</h3>
+        <p>Budget, move-in date, pets, occupants — the same five questions, asked over and over, before you even know if it's worth a viewing.</p>
+      </div>
+      <div class="p-card reveal">
+        <span class="glyph">🔁</span>
+        <h3>Good leads go cold in the gap</h3>
+        <p>Between "still available?" and an agent actually replying, tenants move on. Speed decides who gets the viewing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how section-pad" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow-light">How it works</span>
+      <h2>Three steps. No new app for tenants or agents.</h2>
+      <p>Penny works on your existing WhatsApp Business number — tenants message the way they already do.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="num">01</span>
+        <h3>Tenant messages your number</h3>
+        <p>From a listing, a signboard, or a portal link — any hour, any day. Penny replies in seconds.</p>
+      </div>
+      <div class="step reveal">
+        <span class="num">02</span>
+        <h3>Penny qualifies & matches</h3>
+        <p>Budget, move-in timing, pets, employment, occupants. She scores the lead and surfaces the right listings from your portfolio.</p>
+      </div>
+      <div class="step reveal">
+        <span class="num">03</span>
+        <h3>Viewing booked, agent notified</h3>
+        <p>Penny offers slots, confirms the booking, and hands qualified leads to your team with full context — no re-asking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad score-section" id="score">
+  <div class="wrap">
+    <div class="score-visual reveal">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 220 220" width="220" height="220">
+          <circle cx="110" cy="110" r="92" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="14"/>
+          <circle cx="110" cy="110" r="92" fill="none" stroke="url(#scoreGrad)" stroke-width="14"
+            stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="75"
+            transform="rotate(-90 110 110)"/>
+          <defs>
+            <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#5FB3A3"/>
+              <stop offset="100%" stop-color="#C9603A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="ring-num">
+          <div class="big">87</div>
+          <div class="small">KHAYA SCORE</div>
+        </div>
+      </div>
+      <div class="factor-list">
+        <div class="factor">Budget fit<span class="bar-track"><span class="bar-fill" style="width:92%"></span></span>92</div>
+        <div class="factor">Move-in timing<span class="bar-track"><span class="bar-fill" style="width:85%"></span></span>85</div>
+        <div class="factor">Pet policy<span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>100</div>
+        <div class="factor">Employment status<span class="bar-track"><span class="bar-fill" style="width:80%"></span></span>80</div>
+        <div class="factor">Occupant ratio<span class="bar-track"><span class="bar-fill" style="width:78%"></span></span>78</div>
+      </div>
+    </div>
+
+    <div class="score-copy reveal">
+      <span class="eyebrow-light">The signature feature</span>
+      <h2>Built for the question letting agents actually ask.</h2>
+      <p>A bond calculator tells you what a buyer can borrow. It says nothing about whether a renter is a good fit for your unit. The Khaya Score weighs five things agents actually check before offering a viewing — budget fit, move-in timing, pet policy, employment status, and occupants against bedrooms — into one number your team can trust at a glance.</p>
+      <div class="callout">
+        <b>Why it matters:</b> every score, and the conversation behind it, is stored against the lead — so your team never re-asks what Penny already confirmed.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="different">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow-light">Why rentals only</span>
+      <h2>Not a generalist tool wearing a property hat.</h2>
+      <p>Khaya4Rent was built rental-first, not adapted from a sales workflow after the fact.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="d-card reveal">
+        <span class="tag">Purpose-built</span>
+        <h3>Rental-only, end to end</h3>
+        <p>Dormant-chat recovery, viewing re-offers, and human handoff are built around letting workflows — not bolted onto a buy-and-sell bot.</p>
+      </div>
+      <div class="d-card reveal">
+        <span class="tag">Structure</span>
+        <h3>Multi-tenant from day one</h3>
+        <p>Every agency gets isolated data and its own agent portal, without needing to jump pricing tiers to add a second agent.</p>
+      </div>
+      <div class="d-card reveal">
+        <span class="tag">Identity</span>
+        <h3>A named assistant, not a chatbot</h3>
+        <p>Penny is consistent across every conversation — tenants recognise who they're speaking to, every time they message back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-item">
+      <div class="ico">🔒</div>
+      <span>Data handled with POPIA-conscious practices — consent captured and conversations logged per lead.</span>
+    </div>
+    <div class="trust-item">
+      <div class="ico">✅</div>
+      <span>Runs on an official, verified WhatsApp Business sender — not a personal number or a workaround.</span>
+    </div>
+    <div class="trust-item">
+      <div class="ico">🏢</div>
+      <span>Built and operated by Trieva Technologies (Pty) Ltd, registered with the CIPC.</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <h2>See Penny qualify a real enquiry, in real time.</h2>
+    <p>No slides. Message the live number and watch a lead go from "still available?" to a booked viewing.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="https://wa.me/27754616225?text=Hi%2C%20I%27d%20like%20a%20demo%20of%20Khaya4Rent" target="_blank" rel="noopener">Message Penny on WhatsApp →</a>
+      <a class="btn-ghost" href="mailto:hello@khaya4rent.co.za">Email us instead</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <span class="brand-mark" style="width:24px;height:24px;font-size:13px;">K</span>
+      Khaya4Rent
+    </div>
+    <div>© 2026 Trieva Technologies (Pty) Ltd · <a href="https://trieva.co.za" target="_blank" rel="noopener">trieva.co.za</a></div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
