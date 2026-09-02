@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Khaya4Rent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-deep: #0F6E56;
+    --teal: #5FB3A3;
+    --terracotta: #C9603A;
+    --navy: #0C447C;
+    --ink: #1C2624;
+    --ink-soft: #4A5754;
+    --paper: #FBFAF7;
+    --paper-shade: #F1EEE7;
+    --line: #DEDACF;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal-deep); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+  header.masthead { border-bottom: 1px solid var(--line); background: var(--paper); }
+
+  .masthead-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 28px 24px 24px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .wordmark span { color: var(--terracotta); }
+
+  .masthead-meta { font-size: 0.85rem; color: var(--ink-soft); }
+
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 640px);
+    gap: 56px;
+    align-items: start;
+  }
+
+  @media (max-width: 760px) {
+    main { grid-template-columns: 1fr; gap: 32px; padding: 32px 20px 72px; }
+    nav.toc { position: static; }
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+
+  .intro-lede { font-size: 1.02rem; color: var(--ink-soft); max-width: 62ch; margin: 0 0 8px; }
+
+  nav.toc { position: sticky; top: 32px; font-size: 0.88rem; }
+  nav.toc p { color: var(--ink-soft); margin: 0 0 10px; font-weight: 500; }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  nav.toc a { text-decoration: none; color: var(--ink-soft); display: block; padding: 3px 0 3px 10px; border-left: 2px solid transparent; }
+  nav.toc a:hover { color: var(--teal-deep); border-left-color: var(--teal); }
+
+  article section {
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 24px;
+  }
+  article > section:first-of-type { border-top: none; padding-top: 8px; }
+
+  h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.3rem; margin: 0 0 14px; color: var(--ink); }
+  h3 { font-size: 1rem; font-weight: 600; margin: 22px 0 8px; color: var(--ink); }
+
+  p { margin: 0 0 14px; max-width: 68ch; }
+  ul { margin: 0 0 14px; padding-left: 22px; max-width: 66ch; }
+  li { margin-bottom: 6px; }
+
+  .placeholder {
+    background: #FBEFE7;
+    border: 1px solid #EAC7AE;
+    color: #8A4321;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.92em;
+  }
+
+  .callout {
+    background: var(--paper-shade);
+    border-left: 3px solid var(--teal);
+    padding: 14px 18px;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    margin: 0 0 18px;
+  }
+  .callout strong { color: var(--teal-deep); }
+
+  .flag {
+    background: #FFF7E8;
+    border-left: 3px solid #D6A421;
+    padding: 14px 18px;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    margin: 0 0 18px;
+  }
+  .flag strong { color: #8A6A0E; }
+
+  footer.page-footer { border-top: 1px solid var(--line); margin-top: 8px; }
+  .page-footer-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 28px 24px 40px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .skip-link { position: absolute; left: -999px; top: auto; }
+  .skip-link:focus { position: fixed; left: 16px; top: 16px; background: var(--navy); color: #fff; padding: 10px 14px; border-radius: 4px; z-index: 10; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="wordmark" href="https://app.khaya4rent.co.za">khaya4<span>rent</span></a>
+    <div class="masthead-meta">Terms of Service · Effective <span class="placeholder">[EFFECTIVE DATE]</span></div>
+  </div>
+</header>
+
+<main id="main-content">
+  <nav class="toc" aria-label="Table of contents">
+    <p>On this page</p>
+    <ol>
+      <li><a href="#intro">1. Agreement to these terms</a></li>
+      <li><a href="#definitions">2. Definitions</a></li>
+      <li><a href="#the-service">3. The service</a></li>
+      <li><a href="#accounts">4. Accounts &amp; agent users</a></li>
+      <li><a href="#fees">5. Fees &amp; payment</a></li>
+      <li><a href="#acceptable-use">6. Acceptable use</a></li>
+      <li><a href="#penny-disclaimer">7. Penny &amp; AI-generated content</a></li>
+      <li><a href="#data-privacy">8. Data &amp; privacy</a></li>
+      <li><a href="#your-content">9. Your listings &amp; content</a></li>
+      <li><a href="#ip">10. Our intellectual property</a></li>
+      <li><a href="#availability">11. Availability &amp; third-party dependence</a></li>
+      <li><a href="#term">12. Term &amp; termination</a></li>
+      <li><a href="#liability">13. Liability</a></li>
+      <li><a href="#indemnity">14. Indemnity</a></li>
+      <li><a href="#confidentiality">15. Confidentiality</a></li>
+      <li><a href="#law">16. Governing law &amp; disputes</a></li>
+      <li><a href="#changes">17. Changes to these terms</a></li>
+      <li><a href="#contact">18. Contact</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="intro">
+      <h1>Terms of Service</h1>
+      <p class="intro-lede">These terms govern an agency's use of Khaya4Rent — the agent portal and the Penny WhatsApp assistant — provided by <span class="placeholder">[Trieva Technologies (Pty) Ltd — CIPC reg. no. TO CONFIRM]</span> ("Trieva", "we", "us").</p>
+      <p class="intro-lede">By creating an account or using Khaya4Rent, you agree to these terms on behalf of yourself and, if applicable, the agency you represent.</p>
+
+      <div class="flag">
+        <strong>Open item worth legal input:</strong> under POPIA, a "responsible party" decides why and how personal information is processed, while an "operator" processes it only on someone else's instructions. Because Penny independently decides what to ask tenants and how to qualify them — rather than simply following an agency's script — Trieva likely isn't a pure operator here. Section 8 below reflects that Trieva and each agency may be <em>joint responsible parties</em> for tenant data, which is a stronger position than most SaaS providers take, but it should be confirmed with a lawyer before this goes live, since it affects both this document and the Privacy Policy.
+      </div>
+    </section>
+
+    <section id="definitions">
+      <h2>2. Definitions</h2>
+      <ul>
+        <li><strong>"Agency"</strong> — the real estate agency or agent that registers for and uses Khaya4Rent.</li>
+        <li><strong>"Agent User"</strong> — an individual with a login to the agent portal on the Agency's behalf.</li>
+        <li><strong>"Penny"</strong> — Khaya4Rent's AI assistant that communicates with tenants over WhatsApp.</li>
+        <li><strong>"Lead"</strong> — a prospective tenant's enquiry and the information collected about them through Penny.</li>
+        <li><strong>"Listing Content"</strong> — property listings, photos, and descriptions an Agency adds to the portal.</li>
+        <li><strong>"Service"</strong> — the Khaya4Rent portal, Penny, and related infrastructure.</li>
+      </ul>
+    </section>
+
+    <section id="the-service">
+      <h2>3. The service</h2>
+      <p>Khaya4Rent lets an Agency list rental properties, and uses Penny to converse with prospective tenants over WhatsApp — answering questions, collecting qualifying information, scoring leads, and offering viewing times based on the Agency's own availability. Qualified leads and viewing bookings are made available to the Agency through the portal and via WhatsApp notifications.</p>
+      <p>We may add, change, or remove features over time. We'll try to give reasonable notice of changes that materially reduce functionality you rely on.</p>
+    </section>
+
+    <section id="accounts">
+      <h2>4. Accounts &amp; agent users</h2>
+      <p>An Agency is responsible for all activity under its account, including actions taken by its Agent Users. Agent Users must keep their login credentials confidential and notify us promptly of any suspected unauthorised access.</p>
+      <p>You must provide accurate information when registering, and keep it up to date — including the WhatsApp numbers used to send and receive messages through the Service.</p>
+    </section>
+
+    <section id="fees">
+      <h2>5. Fees &amp; payment</h2>
+      <div class="flag">
+        <strong>Pricing model not yet defined.</strong> This section needs your actual commercial terms once decided — e.g. monthly subscription, per-lead pricing, or a free tier — along with billing cycle, late payment consequences, and any refund policy.
+      </div>
+      <p><span class="placeholder">[TO CONFIRM: fee structure, billing cycle, payment method, consequences of late/failed payment]</span></p>
+    </section>
+
+    <section id="acceptable-use">
+      <h2>6. Acceptable use</h2>
+      <p>When using Khaya4Rent, an Agency agrees not to:</p>
+      <ul>
+        <li>List properties it doesn't have the right to advertise, or post false or materially misleading listing information</li>
+        <li>Use Penny or the portal to send unsolicited marketing messages unrelated to a tenant's own enquiry</li>
+        <li>Attempt to circumvent WhatsApp/Meta's messaging policies, including sending messages outside the permitted session windows other than through approved message templates</li>
+        <li>Use Lead information for any purpose other than progressing that tenant's rental enquiry, without the tenant's consent</li>
+        <li>Attempt to access another Agency's leads, listings, or account data</li>
+        <li>Interfere with or attempt to circumvent the Service's security measures, including the authentication used to protect Lead data</li>
+      </ul>
+      <p>An Agency remains responsible for complying with all applicable South African laws relating to rental housing and advertising, including the Rental Housing Act and any applicable consumer protection legislation.</p>
+    </section>
+
+    <section id="penny-disclaimer">
+      <h2>7. Penny &amp; AI-generated content</h2>
+      <p>Penny is an AI assistant. While we design Penny to be accurate and helpful, AI-generated responses can occasionally be wrong, out of date, or misinterpret what a tenant has said. An Agency is responsible for reviewing lead information Penny collects before relying on it, and for correcting the record with a tenant directly where needed.</p>
+      <p>We don't guarantee that any particular lead qualification score, extracted detail, or Penny response is accurate or complete.</p>
+    </section>
+
+    <section id="data-privacy">
+      <h2>8. Data &amp; privacy</h2>
+      <p>Our <a href="/privacy-policy.html">Privacy Policy</a> describes what personal information we collect and how we use it. By using the Service, an Agency also agrees to:</p>
+      <ul>
+        <li>Only use Lead information for legitimate purposes connected to that tenant's rental enquiry</li>
+        <li>Handle Lead information it receives from us in a manner that complies with POPIA</li>
+        <li>Not further disclose Lead information to third parties without a lawful basis for doing so</li>
+      </ul>
+      <p>See the flagged note in section 1 regarding the responsible-party/operator relationship between Trieva and each Agency — this section should be revisited once that's confirmed.</p>
+    </section>
+
+    <section id="your-content">
+      <h2>9. Your listings &amp; content</h2>
+      <p>An Agency retains ownership of the Listing Content it uploads. By adding Listing Content, the Agency grants Trieva a licence to display, store, and process it as needed to operate the Service — including sharing relevant listing details with tenants via Penny.</p>
+      <p>An Agency confirms it has the right to upload and share any photos or descriptions it adds to the portal.</p>
+    </section>
+
+    <section id="ip">
+      <h2>10. Our intellectual property</h2>
+      <p>The Khaya4Rent platform, including Penny, the portal, the Khaya Score methodology, and all associated software, is the intellectual property of Trieva Technologies (Pty) Ltd. These terms don't grant an Agency any ownership in the Service itself — only the right to use it as intended, for as long as the account remains active.</p>
+    </section>
+
+    <section id="availability">
+      <h2>11. Availability &amp; third-party dependence</h2>
+      <p>Khaya4Rent depends on third-party infrastructure we don't control, including WhatsApp/Meta's messaging platform, Twilio, Google's Gemini API, and our hosting providers. We'll make reasonable efforts to keep the Service available and to notify Agencies of significant outages, but we don't guarantee uninterrupted availability, and we're not responsible for outages or limitations caused by these third parties.</p>
+      <p><span class="placeholder">[TO CONFIRM: if you want to commit to a specific uptime SLA, define it here — otherwise best-effort language above stands]</span></p>
+    </section>
+
+    <section id="term">
+      <h2>12. Term &amp; termination</h2>
+      <p>These terms apply for as long as an Agency's account remains active. Either party may terminate <span class="placeholder">[TO CONFIRM: notice period, e.g. "with 30 days' written notice"]</span>. We may suspend or terminate an account immediately if we reasonably believe it's being used in violation of section 6 (Acceptable use), or in a way that risks WhatsApp/Meta suspending our messaging capability for all Agencies.</p>
+      <p>On termination, we'll retain Lead and Agency data in line with our Privacy Policy's retention terms, and will delete it on request subject to any legal retention obligations.</p>
+    </section>
+
+    <section id="liability">
+      <h2>13. Liability</h2>
+      <div class="flag">
+        <strong>This is a genuine business decision, not something to leave as boilerplate.</strong> The placeholder below reflects a fairly standard SaaS liability cap, but the actual number and any carve-outs should be set deliberately — ideally with legal input — rather than copied without thought.
+      </div>
+      <p>To the maximum extent permitted by law, Trieva's total liability arising from or relating to the Service is limited to the fees paid by the Agency in the <span class="placeholder">[TO CONFIRM: e.g. "3 months"]</span> preceding the claim. Neither party is liable for indirect, incidental, or consequential damages, including loss of profit or loss of leads, except where such liability cannot be excluded by law.</p>
+    </section>
+
+    <section id="indemnity">
+      <h2>14. Indemnity</h2>
+      <p>An Agency agrees to indemnify Trieva against claims arising from the Agency's Listing Content, its use of the Service in violation of these terms, or its handling of Lead information after receiving it from us.</p>
+    </section>
+
+    <section id="confidentiality">
+      <h2>15. Confidentiality</h2>
+      <p>Each party agrees to keep the other's confidential business information private, and to use it only as needed to perform under these terms.</p>
+    </section>
+
+    <section id="law">
+      <h2>16. Governing law &amp; disputes</h2>
+      <p>These terms are governed by the laws of the Republic of South Africa. Any dispute arising from these terms will be subject to the jurisdiction of the courts of <span class="placeholder">[TO CONFIRM: e.g. Western Cape Division, Cape Town]</span>.</p>
+    </section>
+
+    <section id="changes">
+      <h2>17. Changes to these terms</h2>
+      <p>We may update these terms from time to time. We'll update the effective date above when we do, and will aim to give Agencies reasonable notice of material changes.</p>
+    </section>
+
+    <section id="contact">
+      <h2>18. Contact</h2>
+      <div class="callout">
+        <strong>Trieva Technologies (Pty) Ltd</strong><br>
+        Email: <span class="placeholder">[legal@trieva.co.za — TO CONFIRM]</span>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer class="page-footer">
+  <div class="page-footer-inner">
+    <span>© <span id="year"></span> Trieva Technologies (Pty) Ltd</span>
+    <span><a href="/privacy-policy.html">Privacy Policy</a> · <a href="mailto:support@khaya4rent.co.za">Contact support</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
