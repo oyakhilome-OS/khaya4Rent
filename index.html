@@ -240,6 +240,42 @@
   .d-card h3{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px;}
   .d-card p{font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0;}
 
+  /* ---------- PRICING ---------- */
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:1000px){ .price-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:640px){ .price-grid{grid-template-columns:1fr;} }
+  .price-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;background:var(--cream2);
+    display:flex;flex-direction:column;
+  }
+  .price-card.featured{
+    background:var(--navy-deep);border-color:transparent;
+    box-shadow:0 20px 44px -18px rgba(11,38,34,0.45);
+  }
+  .price-card .tag{
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal-dark);text-transform:uppercase;
+    letter-spacing:0.06em;margin-bottom:14px;display:block;
+  }
+  .price-card.featured .tag{color:var(--teal);}
+  .price-card h3{margin:0;}
+  .price-sub{font-size:13px;color:var(--ink-soft);margin:6px 0 0;}
+  .price-card.featured .price-sub{color:rgba(247,244,236,0.62);}
+  .price-amount{display:flex;align-items:baseline;gap:6px;margin-top:16px;}
+  .price-amount .num{font-family:'Fraunces',serif;font-size:32px;font-weight:600;color:var(--ink);}
+  .price-card.featured .price-amount .num{color:#fff;}
+  .price-amount .period{font-size:12.5px;color:var(--ink-soft);font-family:'JetBrains Mono',monospace;}
+  .price-card.featured .price-amount .period{color:rgba(247,244,236,0.55);}
+  .price-features{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:11px;flex:1;}
+  .price-features li{font-size:13.5px;line-height:1.5;color:var(--ink-soft);padding-left:20px;position:relative;}
+  .price-card.featured .price-features li{color:rgba(247,244,236,0.8);}
+  .price-features li::before{content:"✓";position:absolute;left:0;top:0;color:var(--teal-dark);font-weight:700;}
+  .price-card.featured .price-features li::before{color:var(--teal);}
+  .price-note{
+    margin-top:36px;text-align:center;font-size:14px;line-height:1.6;color:var(--ink-soft);
+    background:var(--cream2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 26px;
+  }
+  .price-note b{color:var(--ink);}
+
   /* ---------- TRUST ---------- */
   .trust{background:var(--cream2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .trust .wrap{padding:48px 28px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:space-between;}
@@ -282,6 +318,7 @@
       <a href="#how">How it works</a>
       <a href="#score">The Khaya Score</a>
       <a href="#different">Why rentals only</a>
+      <a href="#pricing">Pricing</a>
     </div>
     <a class="nav-cta" href="https://wa.me/27754616225?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Khaya4Rent" target="_blank" rel="noopener">Chat with Penny</a>
   </div>
@@ -440,6 +477,66 @@
         <p>Penny is consistent across every conversation — tenants recognise who they're speaking to, every time they message back.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section-pad" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow-light">Pricing</span>
+      <h2>One setup fee, then a simple monthly rate per agent.</h2>
+      <p>No commission cut, no per-listing fee. Pricing scales with your team, whether that's one agent or twenty.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <span class="tag">Solo agent</span>
+        <p class="price-sub">1 agent · 40 qualified leads included</p>
+        <div class="price-amount"><span class="num">R699</span><span class="period">/ month</span></div>
+        <ul class="price-features">
+          <li>Unlimited conversations with Penny</li>
+          <li>Khaya Score on every lead</li>
+          <li>Agent portal access</li>
+          <li>R25 per lead beyond 40</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured reveal">
+        <span class="tag">Growing team</span>
+        <p class="price-sub">2–4 agents · 40 leads pooled per agent</p>
+        <div class="price-amount"><span class="num">R649</span><span class="period">/ agent / month</span></div>
+        <ul class="price-features">
+          <li>Everything in Solo Agent</li>
+          <li>Leads pool across your whole team</li>
+          <li>Team-wide portal visibility</li>
+          <li>R25 per lead beyond the pool</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="tag">Established agency</span>
+        <p class="price-sub">5+ agents · 40 leads pooled per agent</p>
+        <div class="price-amount"><span class="num">R449</span><span class="period">/ agent / month</span></div>
+        <ul class="price-features">
+          <li>Everything in Growing Team</li>
+          <li>Priority support</li>
+          <li>R25 per lead beyond the pool</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="tag">Property group</span>
+        <p class="price-sub">11+ agents · multi-branch</p>
+        <div class="price-amount"><span class="num">Custom</span></div>
+        <ul class="price-features">
+          <li>Volume-based setup pricing</li>
+          <li>Custom onboarding</li>
+          <li>Dedicated support</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="price-note"><b>R999 once-off setup</b> for agencies up to 10 agents — WhatsApp number, listings import, and portal accounts, ready in days. Property groups above 10 agents get custom onboarding pricing.</p>
   </div>
 </section>
 
