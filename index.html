@@ -53,7 +53,10 @@
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line-dark);
   }
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;}
+  .nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;position:relative;
+  }
   .brand{display:flex;align-items:center;gap:10px;color:var(--cream2);text-decoration:none;}
   .brand-mark{
     width:30px;height:30px;border-radius:8px;
@@ -68,10 +71,78 @@
   .nav-cta{
     background:var(--terracotta);color:#fff;padding:9px 18px;border-radius:999px;
     font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;
-    transition:background .2s;
+    transition:background .2s;text-align:center;
   }
   .nav-cta:hover{background:var(--terracotta-light);}
-  @media(max-width:760px){ .nav-links{display:none;} }
+
+  /* Hamburger Toggle Button */
+  .menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    z-index: 60;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--cream2);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile Styles */
+  @media(max-width:760px){ 
+    .menu-toggle { display: flex; }
+    
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--navy-deep);
+      padding: 24px 28px;
+      gap: 20px;
+      border-bottom: 1px solid var(--line-dark);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      align-items: flex-start;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .nav-links .nav-cta {
+      width: 100%;
+      margin-top: 8px;
+      padding: 12px 18px;
+    }
+
+    .desktop-cta { display: none; }
+
+    /* Animated hamburger state */
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -312,15 +383,24 @@
   <div class="wrap">
     <a href="#top" class="brand">
       <span class="brand-mark">K</span>
-<span class="brand-name" style="display: inline-flex; color: #FFFFFF;">Khaya<span style="color: #E28766;">4</span><span style="color: #5FB3A3;">Rent</span></span>
+      <span class="brand-name" style="display: inline-flex; color: #FFFFFF;">Khaya<span style="color: #E28766;">4</span><span style="color: #5FB3A3;">Rent</span></span>
     </a>
-    <div class="nav-links">
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
       <a href="#how">How it works</a>
       <a href="#score">The Khaya Score</a>
       <a href="#different">Why rentals only</a>
       <a href="#pricing">Pricing</a>
+      <a class="nav-cta" href="https://wa.me/27754616225?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Khaya4Rent" target="_blank" rel="noopener">Chat with Penny</a>
     </div>
-    <a class="nav-cta" href="https://wa.me/27754616225?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Khaya4Rent" target="_blank" rel="noopener">Chat with Penny</a>
+
+    <a class="nav-cta desktop-cta" href="https://wa.me/27754616225?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Khaya4Rent" target="_blank" rel="noopener">Chat with Penny</a>
   </div>
 </nav>
 
@@ -584,6 +664,24 @@
 </footer>
 
 <script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when clicking any link inside
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Scroll animations
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
