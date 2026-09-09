@@ -58,11 +58,10 @@
     padding:16px 28px;position:relative;
   }
   .brand{display:flex;align-items:center;gap:10px;color:var(--cream2);text-decoration:none;}
-  .brand-mark{
-    width:30px;height:30px;border-radius:8px;
-    background:linear-gradient(145deg,var(--teal),var(--teal-dark));
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif;font-weight:700;color:var(--navy-deep);font-size:16px;
+  .brand-logo{
+    width:32px;height:32px;border-radius:8px;
+    object-fit:cover;
+    display:block;
   }
   .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;}
   .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;color:rgba(247,244,236,0.75);}
@@ -196,8 +195,9 @@
     background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06);
   }
   .phone-avatar{
-    width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,var(--teal),var(--teal-dark));
-    display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy-deep);font-family:'Fraunces',serif;
+    width:34px;height:34px;border-radius:50%;
+    object-fit:cover;
+    display:block;
   }
   .phone-headtext{line-height:1.3;}
   .phone-headtext .name{font-weight:700;color:#fff;font-size:14.5px;}
@@ -382,7 +382,7 @@
 <nav class="nav">
   <div class="wrap">
     <a href="#top" class="brand">
-      <span class="brand-mark">K</span>
+      <img src="khaya4rent1.png" alt="Khaya4Rent Logo" class="brand-logo">
       <span class="brand-name" style="display: inline-flex; color: #FFFFFF;">Khaya<span style="color: #E28766;">4</span><span style="color: #5FB3A3;">Rent</span></span>
     </a>
     
@@ -419,7 +419,7 @@
 
     <div class="phone">
       <div class="phone-head">
-        <div class="phone-avatar">P</div>
+        <img src="khaya4rent1.png" alt="Penny Avatar" class="phone-avatar">
         <div class="phone-headtext">
           <div class="name">Penny · Khaya4Rent</div>
           <div class="status">Online</div>
@@ -651,7 +651,7 @@
 <footer>
   <div class="wrap">
     <div class="f-brand">
-      <span class="brand-mark" style="width:24px;height:24px;font-size:13px;">K</span>
+      <img src="khaya4rent1.png" alt="Khaya4Rent Logo" style="width:24px;height:24px;border-radius:6px;object-fit:cover;">
       Khaya4Rent
     </div>
     <div>© 2026 Trieva Technologies (Pty) Ltd · <a href="https://trieva.co.za" target="_blank" rel="noopener">trieva.co.za</a></div>
